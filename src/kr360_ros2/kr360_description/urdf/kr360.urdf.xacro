@@ -1,0 +1,274 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="kr360">
+
+  <!-- Define macro for the KR360 robot -->
+  <xacro:macro name="kr360" params="parent prefix:='' *origin">
+    
+    <!-- Joint between parent and base_link -->
+    <joint name="${prefix}base_joint" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}"/>
+      <child link="${prefix}link_1"/>
+    </joint>
+
+    <!-- Link link_1 (Base) -->
+    <link name="${prefix}link_1">
+      <inertial>
+        <origin xyz="0 0 0.28" rpy="0 0 0"/>
+        <mass value="150"/>
+        <inertia ixx="5.0" ixy="0" ixz="0" iyy="5.0" iyz="0" izz="3.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0.56" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_1.stl"/>
+        </geometry>
+        <material name="kr360_orange">
+          <color rgba="0.8 1 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.56" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_1.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Link base_link -->
+    <link name="${prefix}base_link">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="50"/>
+        <inertia ixx="2.0" ixy="0" ixz="0" iyy="2.0" iyz="0" izz="1.5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/base_link.stl"/>
+        </geometry>
+        <material name="kr360_orange">
+          <color rgba="1 0.4 0 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/base_link.stl"/>
+        </geometry>
+      </collision>
+    </link>
+    
+    <!-- Link link_2 -->
+    <link name="${prefix}link_2">
+      <inertial>
+        <origin xyz="0 0.5 0" rpy="0 0 0"/>
+        <mass value="120"/>
+        <inertia ixx="4.0" ixy="0" ixz="0" iyy="4.0" iyz="0" izz="2.5"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.5 1.045 0.054" rpy="1.5708 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/grepfd4bm2b6.stl"/>
+        </geometry>
+        <material name="kr360_grey">
+          <color rgba="0.94902 0.94902 0.94902 1"/>
+        </material>
+      </visual>
+      <visual>
+        <origin xyz="-0.5 1.045 0.054" rpy="1.5708 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_2.stl"/>
+        </geometry>
+        <material name="kr360_grey">
+          <color rgba="0.94902 0.94902 0.94902 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-0.5 1.045 0.054" rpy="1.5708 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_2.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Link link_3 -->
+    <link name="${prefix}link_3">
+      <inertial>
+        <origin xyz="0 -1.2 0" rpy="0 0 0"/>
+        <mass value="100"/>
+        <inertia ixx="3.5" ixy="0" ixz="0" iyy="3.5" iyz="0" izz="2.0"/>
+      </inertial>
+      <visual>
+        <origin xyz="-0.5 -2.345 -0.086" rpy="-1.5708 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/grepfd4bm2b6__2.stl"/>
+        </geometry>
+        <material name="kr360_blue">
+          <color rgba="0.231373 0.380392 0.705882 1"/>
+        </material>
+      </visual>
+      <visual>
+        <origin xyz="-0.5 -2.345 -0.086" rpy="-1.5708 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_3.stl"/>
+        </geometry>
+        <material name="kr360_orange">
+          <color rgba="0.8 1 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-0.5 -2.345 -0.086" rpy="-1.5708 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_3.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Link link_4 -->
+    <link name="${prefix}link_4">
+      <inertial>
+        <origin xyz="0 0 0.5" rpy="0 0 0"/>
+        <mass value="80"/>
+        <inertia ixx="2.5" ixy="0" ixz="0" iyy="2.5" iyz="0" izz="1.5"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 2.29 0.999" rpy="1.5708 1.5708 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_4.stl"/>
+        </geometry>
+        <material name="kr360_orange">
+          <color rgba="0.8 1 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 2.29 0.999" rpy="1.5708 1.5708 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_4.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Link link_5 -->
+    <link name="${prefix}link_5">
+      <inertial>
+        <origin xyz="-0.76 0 0" rpy="0 0 0"/>
+        <mass value="60"/>
+        <inertia ixx="1.8" ixy="0" ixz="0" iyy="1.8" iyz="0" izz="1.2"/>
+      </inertial>
+      <visual>
+        <origin xyz="-1.525 2.29 -0.165" rpy="1.5708 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_5.stl"/>
+        </geometry>
+        <material name="kr360_orange">
+          <color rgba="0.8 1 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="-1.525 2.29 -0.165" rpy="1.5708 0 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_5.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Link link_6 (End Effector) -->
+    <link name="${prefix}link_6">
+      <inertial>
+        <origin xyz="0 0 0.38" rpy="0 0 0"/>
+        <mass value="40"/>
+        <inertia ixx="1.2" ixy="0" ixz="0" iyy="1.2" iyz="0" izz="0.8"/>
+      </inertial>
+      <visual>
+        <origin xyz="0 2.29 1.762" rpy="1.5708 1.5708 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_6.stl"/>
+        </geometry>
+        <material name="kr360_dark">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 2.29 1.762" rpy="1.5708 1.5708 0"/>
+        <geometry>
+          <mesh filename="package://kr360_description/meshes/link_6.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Tool Center Point (TCP) -->
+    <link name="${prefix}tool0"/>
+
+    <!-- Joints -->
+    
+    <!-- Joint A1: link_1 to base_link -->
+    <joint name="${prefix}joint_a1" type="revolute">
+      <origin xyz="0 0 0.56" rpy="0 0 0"/>
+      <parent link="${prefix}link_1"/>
+      <child link="${prefix}base_link"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="1000" velocity="1.571" lower="-3.22886" upper="3.22886"/>
+      <dynamics damping="0.7"/>
+    </joint>
+
+    <!-- Joint A2: link_1 to link_2 -->
+    <joint name="${prefix}joint_a2" type="revolute">
+      <origin xyz="0.5 -0.054 1.56" rpy="-1.5708 0.22457 0"/>
+      <parent link="${prefix}link_1"/>
+      <child link="${prefix}link_2"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="1000" velocity="1.571" lower="-0.922701" upper="1.69529"/>
+      <dynamics damping="0.7"/>
+    </joint>
+
+    <!-- Joint A3: link_2 to link_3 -->
+    <joint name="${prefix}joint_a3" type="revolute">
+      <origin xyz="0 -1.3 -0.032" rpy="3.14159 0 -0.138799"/>
+      <parent link="${prefix}link_2"/>
+      <child link="${prefix}link_3"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="1000" velocity="1.571" lower="-1.08128" upper="3.17733"/>
+      <dynamics damping="0.7"/>
+    </joint>
+
+    <!-- Joint A4: link_3 to link_4 -->
+    <joint name="${prefix}joint_a4" type="revolute">
+      <origin xyz="0.499 -0.055 -0.086" rpy="-3.14159 1.5708 0"/>
+      <parent link="${prefix}link_3"/>
+      <child link="${prefix}link_4"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="500" velocity="3.142" lower="-6.10865" upper="6.10865"/>
+      <dynamics damping="0.5"/>
+    </joint>
+
+    <!-- Joint A5: link_4 to link_5 -->
+    <joint name="${prefix}joint_a5" type="revolute">
+      <origin xyz="0.165 0 -0.526" rpy="-1.5708 0.333109 -1.5708"/>
+      <parent link="${prefix}link_4"/>
+      <child link="${prefix}link_5"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="500" velocity="3.142" lower="-0.856708" upper="3.33208"/>
+      <dynamics damping="0.5"/>
+    </joint>
+     
+    <!-- Joint A6: link_5 to link_6 -->
+    <joint name="${prefix}joint_a6" type="revolute">
+      <origin xyz="0.237 0 -0.165" rpy="0 -1.5708 0"/>
+      <parent link="${prefix}link_5"/>
+      <child link="${prefix}link_6"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="200" velocity="5.236" lower="-6.10865" upper="6.10865"/>
+      <dynamics damping="0.3"/>
+    </joint>
+
+    <!-- Tool Center Point Joint -->
+    <joint name="${prefix}tool0_joint" type="fixed">
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <parent link="${prefix}link_6"/>
+      <child link="${prefix}tool0"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>

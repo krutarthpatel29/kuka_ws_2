@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="kr360_gazebo" params="runtime_config_package controllers_file namespace prefix">
+
+        <gazebo>
+            <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+                <robot_param>robot_description</robot_param>
+                <robot_param_node>${namespace}robot_state_publisher</robot_param_node>
+                <parameters>$(find ${runtime_config_package})/config/${controllers_file}</parameters>
+            </plugin>
+        </gazebo>
+
+        <!-- Link colors and materials for Gazebo -->
+        <gazebo reference="${prefix}link_1">
+            <material>Gazebo/Orange</material>
+        </gazebo>
+        
+        <gazebo reference="${prefix}base_link">
+            <material>Gazebo/Orange</material>
+        </gazebo>
+
+        <gazebo reference="${prefix}link_2">
+            <material>Gazebo/Grey</material>
+        </gazebo>
+
+        <gazebo reference="${prefix}link_3">
+            <material>Gazebo/Orange</material>
+        </gazebo>
+
+        <gazebo reference="${prefix}link_4">
+            <material>Gazebo/Orange</material>
+        </gazebo>
+
+        <gazebo reference="${prefix}link_5">
+            <material>Gazebo/Orange</material>
+        </gazebo>
+
+        <gazebo reference="${prefix}link_6">
+            <material>Gazebo/DarkGrey</material>
+        </gazebo>
+
+    </xacro:macro>
+
+</robot>
