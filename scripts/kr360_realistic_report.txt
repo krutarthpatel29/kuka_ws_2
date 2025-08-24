@@ -1,0 +1,10 @@
+KR360 Anomaly Detection Report (Realistic Data)
+
+              precision    recall  f1-score   support
+
+           0      0.949     1.000     0.974        75
+           1      1.000     0.556     0.714         9
+
+    accuracy                          0.952        84
+   macro avg      0.975     0.778     0.844        84
+weighted avg      0.955     0.952     0.946        84

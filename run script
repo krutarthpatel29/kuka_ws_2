@@ -1,0 +1,78 @@
+krutarth@krutarth:~/Desktop/kuka_ws_2/scripts$ 
+python3 manual_opcua_server_kr360.py
+
+
+krutarth@krutarth:~/Desktop/kuka_ws_2$ source install/setup.bash 
+krutarth@krutarth:~/Desktop/kuka_ws_2$ ros2 launch kr360_bringup kr360.launch.py
+
+
+
+krutarth@krutarth:~/Desktop/kuka_ws_2/src/kuka_kr360_middleware/kuka_kr360_middleware$ 
+source ../../../install/setup.bash
+python3 opcua_kr360_bridge.py
+
+
+cd ~/Desktop/kuka_ws_2/scripts
+python3 plc_opcua_bridge.py
+
+
+cd ~/Desktop/kuka_ws_2/scripts
+python3 direct_robot_controller.py
+
+
+
+
+for this we have to start our openplc runtime
+
+=============================================================
+
+
+Current System Explanation:
+1. manual_opcua_server.py - OPC UA Server
+
+Purpose: Acts as a communication bridge between PLC and robot
+Features:
+
+Hosts an OPC UA server on port 4840
+Stores predefined robot positions (HOME, PICK, PLACE)
+Monitors PLC commands and updates joint positions
+Has writable variables for PLC control
+
+
+
+2. plc_opcua_bridge.py - PLC to OPC UA Bridge
+
+Purpose: Reads PLC outputs and sends commands to OPC UA server
+Features:
+
+Connects to OpenPLC via Modbus (port 502)
+Monitors PLC output coils (1024, 1025, 1026) for HOME/PICK/PLACE commands
+Sends corresponding commands to OPC UA server
+Edge detection (only triggers on state changes)
+
+
+
+3. direct_robot_controller.py - Direct PLC Control
+
+Purpose: Bypass OPC UA and control robot directly via PLC
+Features:
+
+Interactive control (1=HOME, 2=PICK, 3=PLACE)
+Writes directly to PLC output coils
+Used for testing/troubleshooting
+
+
+
+4. opcua_kuka_bridge.py - ROS 2 Bridge
+
+Purpose: Reads OPC UA joint positions and publishes to ROS 2
+Features:
+
+Subscribes to OPC UA joint data
+Publishes JointTrajectory messages to /iiwa_arm_controller/joint_trajectory
+Converts OPC UA data to ROS 2 robot commands
+
+
+
+System Flow:
+PLC Logic → Modbus → PLC-OPC UA Bridge → OPC UA Server → ROS 2 Bridge → Robot

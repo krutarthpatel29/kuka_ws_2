@@ -1,0 +1,9 @@
+repositories:
+  src/kr360_ros2:
+    type: git
+    url: https://github.com/ICube-Robotics/iiwa_ros2.git
+    version: d09d6516f4be1a9340e143f5d8ed82f07ca0a4c1  # branch: main
+  src/ros-controls/gazebo_ros2_control:
+    type: git
+    url: https://github.com/ros-controls/gazebo_ros2_control.git
+    version: c4f0092a46b3513ca4609d8197dba2254d12ee56  # branch: humble

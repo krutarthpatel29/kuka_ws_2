@@ -1,0 +1,12 @@
+{
+  "test_date": "20250710_101356",
+  "total_commands": 150,
+  "success_count": 150,
+  "failure_count": 0,
+  "success_rate": 100.0,
+  "avg_plc_to_opcua_ms": 109.59389368693034,
+  "avg_total_latency_ms": 113.39291572570801,
+  "max_latency_ms": 209.89537239074707,
+  "min_latency_ms": 52.38914489746094,
+  "test_duration_s": 92.13645911216736
+}
