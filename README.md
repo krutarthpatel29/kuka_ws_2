@@ -80,26 +80,7 @@ source install/setup.bash
 ## Usage
 
 ### Basic Simulation
-Launch the KUKA robot simulation in Gazebo:
-```bash
-# Terminal 1: Launch Gazebo simulation
-ros2 launch [your_package_name] gazebo_simulation.launch.py
-
-# Terminal 2: Launch RViz for visualization
-ros2 launch [your_package_name] rviz.launch.py
-```
-
-### Motion Planning with MoveIt!
-```bash
-# Launch MoveIt! planning interface
-ros2 launch [your_package_name] moveit_planning.launch.py
-```
-
-### Custom Control
-```bash
-# Launch custom control nodes
-ros2 launch [your_package_name] robot_control.launch.py
-```
+follow run script to run hybride communication frmework step by step 
 
 ## Package Structure
 ```
@@ -127,7 +108,7 @@ kuka_ws_2/
 - **Joint Configurations**: Proper joint limits and dynamics
 
 ### Simulation Environment
-- **Gazebo Integration**: Physics-based simulation
+- **Rviz Integration**: Physics-based simulation
 - **World Files**: Custom simulation environments
 - **Sensor Integration**: Camera, LiDAR, and force sensors
 
