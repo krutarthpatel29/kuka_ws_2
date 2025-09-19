@@ -195,7 +195,7 @@ colcon test-result --verbose
 ## Author
 **Krutarth Patel**
 - GitHub: [@krutarthpatel29](https://github.com/krutarthpatel29)
-- Email: [krutarthp81@example.com]
+- Email: [krutarthp81@gmail.com]
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
