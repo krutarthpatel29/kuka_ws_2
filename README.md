@@ -80,7 +80,7 @@ source install/setup.bash
 ## Usage
 
 ### Basic Simulation
-follow run script to run hybride communication frmework step by step 
+follow run script to run hybrid communication frmework step by step 
 
 ## Package Structure
 ```
@@ -117,34 +117,25 @@ kuka_ws_2/
 - **Path Planning**: Collision-free trajectory generation
 - **Execution**: Real-time trajectory execution
 
+
+## MSc Thesis Project: Multi-Robot Coordination Using ROS2
+
+This repository also contains my **MSc thesis project** at the University of Stuttgart on multi-robot coordination with KUKA robots and ROS2. The project focuses on real-time communication, task execution, and integration of PLCs with AI-based monitoring for industrial 4.0 environments.
+
+### Thesis PDF
+- [Download Thesis PDF](Krutarth_Patel_MT_Thesis_v1.2.pdf) – Full 92-page MSc thesis detailing methodology, experiments, and results.
+
+### Demonstration Videos
+- [Multi-Robot Demo](videos/Multi_robot_demo.MP4) – Shows multi-robot coordination in simulation with ROS2.
+- [Single-Robot Demo](videos/Single_robot_demo.MP4) – Shows single-robot tasks in simulation with ROS2.
+
+> These materials provide a complete overview of my MSc thesis project and the hybrid communication framework developed for multi-robot systems.
+
 ## Demonstration
 
-### 📊 Presentation
-*[Add your presentation file here]*
-- **File**: `presentation/KUKA_Project_Presentation.pdf`
-- **Description**: Detailed overview of the project, methodology, and results
-- **Topics Covered**:
-  - Project objectives and scope
-  - Technical approach and implementation
-  - Simulation results and analysis
-  - Future work and improvements
+For the MSc thesis project, see the demonstration videos above in the **MSc Thesis Project** section.
 
-### 🎥 Screen Recording
-*[Add your screen recording here]*
-- **File**: `demo/KUKA_Demo_Recording.mp4`
-- **Description**: Live demonstration of the KUKA robot simulation and control
-- **Demonstration Includes**:
-  - Robot spawning in Gazebo simulation
-  - Motion planning with MoveIt!
-  - Trajectory execution and visualization
-  - Custom control algorithms in action
 
-#### Quick Demo Preview
-```bash
-# To reproduce the demo locally:
-source install/setup.bash
-ros2 launch [main_package] full_demo.launch.py
-```
 
 ## Troubleshooting
 
@@ -159,12 +150,6 @@ ros2 launch [main_package] full_demo.launch.py
 2. **Missing Dependencies**:
    ```bash
    rosdep install --from-paths src --ignore-src -r -y
-   ```
-
-3. **Gazebo Issues**:
-   ```bash
-   # Reset Gazebo
-   killall gzserver gzclient
    ```
 
 ## Development
@@ -190,9 +175,7 @@ colcon test-result --verbose
 - **Execution Accuracy**: ±0.1mm positioning accuracy
 
 ## Hardware Compatibility
-- KUKA iiwa 7 R800
-- KUKA iiwa 14 R820
-- KUKA LBR Med series
+- KUKA KR360 R2830
 - Custom KUKA configurations
 
 ## Future Enhancements
@@ -212,7 +195,7 @@ colcon test-result --verbose
 ## Author
 **Krutarth Patel**
 - GitHub: [@krutarthpatel29](https://github.com/krutarthpatel29)
-- Email: [your.email@example.com]
+- Email: [krutarthp81@example.com]
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -233,9 +216,6 @@ source /opt/ros/humble/setup.bash && rosdep install --from-paths src --ignore-sr
 # Launch simulation
 ros2 launch [your_main_package] simulation.launch.py
 
-# Launch planning interface
-ros2 launch [your_main_package] moveit.launch.py
-```
 
 ---
 
